@@ -11,9 +11,7 @@ This script:
 
 1. Request your Medium archive from the bottom of https://medium.com/me/settings (Export content).
 
-<img width="735" alt="screen shot 2017-05-08 at 10 46 14" src="https://cloud.githubusercontent.com/assets/2061609/25822889/01e3f122-33ef-11e7-9eca-85ec5778fcc4.png">
-
-
+> <img width="735" alt="screen shot 2017-05-08 at 10 46 14" src="https://cloud.githubusercontent.com/assets/2061609/25822889/01e3f122-33ef-11e7-9eca-85ec5778fcc4.png">
 
 2. Wait for the email.
 3. Download the archive from the email.
