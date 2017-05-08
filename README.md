@@ -25,7 +25,7 @@ Note: You can interrupt the script at any time and run it again – it should s
 
 ### Details
 
-- The script downloads the images in highest (original) quality. (Owing to how Medium image server works, those won’t be the exact original image files you uploaded, but they should be in the same resolution. This is particularly important for animated GIFs.)
+- The script downloads the images in highest quality. (Owing to how Medium image server works, those won’t be the exact original image files you uploaded, but they should be in the same resolution. This is particularly important for animated GIFs.)
 - Images are downloaded into `images/` subdirectory.
 - The original versions of modified archive files are saved in `original_articles/`, just in case.
 
