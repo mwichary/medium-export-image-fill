@@ -49,8 +49,6 @@ print("")
 # Prepare variables etc.
 
 image_count_global = 0
-if not os.path.isdir("images"):
-  os.mkdir("images")
 if not os.path.isdir("original_articles"):
   os.mkdir("original_articles")
 
@@ -94,7 +92,7 @@ for article_count, article_filename in enumerate(articles):
     for image_count, image in enumerate(images):
       
       # Create an article-specific directory to download images into
-      directory_name = 'images/' + os.path.splitext(article_filename)[0]
+      directory_name = os.path.splitext(article_filename)[0]
       if (image_count == 0) and not os.path.isdir(directory_name):
         os.mkdir(directory_name)
 
