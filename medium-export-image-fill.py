@@ -62,6 +62,12 @@ for filename in os.listdir("."):
   if filename.endswith(".html"):
     articles.append(filename)
 
+if len(articles) == 0:
+  print("No Medium articles found here.")
+  print("Are you sure you're running this in the right directory?")
+  print("")
+  sys.exit()
+
 print("To process: %i article(s)..." % (len(articles)))
 print("(You can cancel any time. Next time you run, the script should resume at the last point.)")
 print("")
