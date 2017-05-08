@@ -11,7 +11,8 @@ This script:
 
 1. Request your Medium archive from the bottom of https://medium.com/me/settings (Export content).
 
-TK IMAGE
+<img width="735" alt="screen shot 2017-05-08 at 10 46 14" src="https://cloud.githubusercontent.com/assets/2061609/25822889/01e3f122-33ef-11e7-9eca-85ec5778fcc4.png">
+
 
 
 2. Wait for the email.
@@ -21,9 +22,7 @@ TK IMAGE
 
 Note: You can interrupt the script at any time and run it again – it should start where it left off.
 
-TK IMAGE
-<img width="1154" src="https://cloud.githubusercontent.com/assets/2061609/21486338/edb3daf4-cb67-11e6-88ca-928b1b017b10.png">
-
+<img width="1210" alt="screen shot 2017-05-08 at 10 38 14" src="https://cloud.githubusercontent.com/assets/2061609/25822878/f8c5f748-33ee-11e7-9694-afd688610025.png">
 
 ### Details
 
