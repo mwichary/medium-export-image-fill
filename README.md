@@ -6,6 +6,7 @@ This script:
 - downloads all the images from your medium articles locally
 - rewrites the archive files so that they point to the local images
 
+(I wrote a [similar script for Twitter archive](https://github.com/mwichary/twitter-export-image-fill).)
 
 ### Instructions
 
