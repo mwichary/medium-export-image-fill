@@ -6,7 +6,7 @@ This script:
 - downloads all the images from your medium articles locally
 - rewrites the archive files so that they point to the local images
 
-(I wrote a [similar script for Twitter archive](https://github.com/mwichary/twitter-export-image-fill).)
+(I wrote a [similar script for a Twitter archive](https://github.com/mwichary/twitter-export-image-fill).)
 
 
 ### Why you should have a complete archive of your own data
@@ -14,6 +14,7 @@ This script:
 - n+1 backups is better than n backups.
 - Your own backup will make it possible to get to your data if you’re offline, or if Medium happens to be down.
 - Someone can hack into your account and delete your stories.
+- *You* can accidentally delete your stories or images.
 - Someone at Medium can make a mistake and delete them, too.
 - Years or decades from now, Medium might cease to exist.
 
