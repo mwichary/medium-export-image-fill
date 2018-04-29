@@ -6,7 +6,18 @@ This script:
 - downloads all the images from your medium articles locally
 - rewrites the archive files so that they point to the local images
 
-(I wrote a [similar script for Twitter archive](https://github.com/mwichary/twitter-export-image-fill).)
+(I wrote a [similar script for a Twitter archive](https://github.com/mwichary/twitter-export-image-fill).)
+
+
+### Why you should have a complete archive of your own data
+
+- n+1 backups is better than n backups.
+- Your own backup will make it possible to get to your data if you’re offline, or if Medium happens to be down.
+- Someone can hack into your account and delete your stories.
+- *You* can accidentally delete your stories or images.
+- Someone at Medium can make a mistake and delete them, too.
+- Years or decades from now, Medium might cease to exist.
+
 
 ### Instructions
 
@@ -25,7 +36,7 @@ Note: You can interrupt the script at any time and run it again – it should s
 
 ### Details
 
-- The script downloads the images in highest (original) quality. (Owing to how Medium image server works, those won’t be the exact original image files you uploaded, but they should be in the same resolution. This is particularly important for animated GIFs.)
+- The script downloads the images in highest quality. (Owing to how Medium image server works, those won’t be the exact original image files you uploaded, but they should be in the same resolution. This is particularly important for animated GIFs.)
 - Images are downloaded into `images/` subdirectory.
 - The original versions of modified archive files are saved in `original_articles/`, just in case.
 
