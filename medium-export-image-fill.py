@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Medium export image fill 1.00
+Medium export image fill 1.01
 by Marcin Wichary (aresluna.org)
 
 Site: https://github.com/mwichary/medium-export-image-fill
@@ -23,17 +23,12 @@ import argparse
 import json
 import os
 import re
-import stat
 import string
 import sys
 import time
 import urllib
 from shutil import copyfile
-# The location of urlretrieve changed modules in Python 3
-if (sys.version_info > (3, 0)):
-    from urllib.request import urlretrieve
-else:
-    from urllib import urlretrieve
+from urllib import request
 
 
 # Main entry point
@@ -41,7 +36,7 @@ else:
 
 # Introduce yourself
 
-print("Medium export image fill 1.00")
+print("Medium export image fill 1.01")
 print("by Marcin Wichary (aresluna.org) and others")
 print("use --help to see options")
 print("")
@@ -51,9 +46,6 @@ print("")
 image_count_global = 0
 if not os.path.isdir("original_articles"):
   os.mkdir("original_articles")
-
-# We need to impersonate a browser for downloads from CloudFlare to succeed
-urllib.URLopener.version = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 SE 2.X MetaSr 1.0'
 
 # Find all the articles to be processed
 
@@ -79,7 +71,7 @@ for article_count, article_filename in enumerate(articles):
   try:
     # Display progress
     count_string = '[%i/%i] ' % (article_count + 1, len(articles))
-    print '%s%s...' % (count_string, article_filename)
+    print('%s%s...' % (count_string, article_filename))
 
     # Make a copy of the original file, just in case (only if it doesn't exist before)
     backup_filename = "original_articles/" + article_filename
@@ -89,14 +81,14 @@ for article_count, article_filename in enumerate(articles):
     # Open file, find all images
     with open(article_filename, 'r') as file:
       article_contents = file.read()
-    
+
     images = re.findall(r'(<img class="graf-image"(.*?)src="(.*?)">)', article_contents)
 
     # Loop 2: Go through all the images in an article
     # -----------------------------------------------
 
     for image_count, image in enumerate(images):
-      
+
       # Create an article-specific directory to download images into
       directory_name = os.path.splitext(article_filename)[0]
       if (image_count == 0) and not os.path.isdir(directory_name):
@@ -133,7 +125,13 @@ for article_count, article_filename in enumerate(articles):
         download_tries = 3
         while not downloaded:
           try:
-            urlretrieve(image_server_high_quality_url, image_local_filename)
+            # We need to impersonate a browser for downloads from CloudFlare to succeed
+            user_agent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 SE 2.X MetaSr 1.0'
+            headers = {'User-Agent': user_agent}
+            request = urllib.request.Request(image_server_high_quality_url, headers=headers)
+            with urllib.request.urlopen(request) as response:
+              with open(image_local_filename, 'wb') as out:
+                out.write(response.read())
           except:
             download_tries = download_tries - 1
             if download_tries == 0:
@@ -141,14 +139,14 @@ for article_count, article_filename in enumerate(articles):
               print("Failed to download %s after 3 tries." % better_url)
               print("Please try again later?")
               sys.exit()
-            time.sleep(5) # Wait 5 seconds before retrying
+            time.sleep(3) # Wait 3 seconds before retrying
           else:
             downloaded = True
 
         image_count_global = image_count_global + 1
 
         # Rewrite the URL to point to a local file, and re-save the article
-        article_contents = re.sub(r'(<img class="graf-image"(.*?)src="{0}">)'.format(re.escape(image_server_url)), 
+        article_contents = re.sub(r'(<img class="graf-image"(.*?)src="{0}">)'.format(re.escape(image_server_url)),
             r'<img class="graf-image"\2src="{0}">'.format(image_local_filename),
             article_contents, 1)
         with open(article_filename, 'w') as file:
