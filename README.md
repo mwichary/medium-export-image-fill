@@ -59,5 +59,8 @@ This script is in public domain. Run free.
 
 ### Version history
 
+**1.01 (29 April 2018)**
+- Make it work with Python 3
+
 **1.00 (8 May 2017)**
 - Initial release
