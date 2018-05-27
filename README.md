@@ -28,7 +28,7 @@ This script:
 2. Wait for the email.
 3. Download the archive from the email.
 4. Unpack it somewhere.
-5. Go to the `posts` subdirectory of that archive and run `medium-export-image-fill.py` there (using terminal/command line).
+5. Go to the `posts/` subdirectory of that archive and run `medium-export-image-fill.py` there (using terminal/command line).
 
 Note: You can interrupt the script at any time and run it again – it should start where it left off.
 
