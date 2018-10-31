@@ -82,7 +82,7 @@ for article_count, article_filename in enumerate(articles):
     with open(article_filename, 'r') as file:
       article_contents = file.read()
 
-    images = re.findall(r'(<img class="graf-image"(.*?)src="(.*?)">)', article_contents)
+    images = re.findall(r'(<img class="graf-image"(.*?) src="(.*?)">)', article_contents)
 
     # Loop 2: Go through all the images in an article
     # -----------------------------------------------
